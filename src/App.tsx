@@ -26,7 +26,7 @@ function App() {
     );
   }, []);
 
-  const handleAddTopics = useCallback(async (newTopics: string[], blogCount: number) => {
+  const handleAddTopics = useCallback(async (newTopics: string[], blogCount: number, specialInstruction : string) => {
     // Create topic objects for each topic and each blog count
     const topicObjects: BlogTopic[] = [];
     
@@ -55,7 +55,7 @@ function App() {
           t.id === topic.id ? { ...t, status: 'generating' } : t
         ));
 
-        const blog = await generateBlog(originalTopic, blogNumber);
+        const blog = await generateBlog(originalTopic, blogNumber, specialInstruction);
         
         // Update status to completed
         setTopics(prev => prev.map(t => 
@@ -172,7 +172,7 @@ function App() {
         isPublishing={isPublishingToWordPress}
         results={wordPressResults}
         blogTitles={generatedBlogs.map(blog => blog.title)}
-        onClose={() => setShowPublishProgress(false)}
+        onClose={() => location.reload()}
       />
     </div>
   );

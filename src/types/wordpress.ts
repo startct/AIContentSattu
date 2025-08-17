@@ -17,4 +17,3 @@ export interface WordPressPublishResult {
   postUrl?: string;
   error?: string;
 }
-</parameter>

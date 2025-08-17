@@ -12,6 +12,9 @@ export class WordPressService {
       return { success: false, error: 'No credentials provided' };
     }
 
+    console.log(`${this.credentials.username}:${this.credentials.applicationPassword}`);
+    
+
     try {
       const response = await fetch(`${this.credentials.siteUrl}/wp-json/wp/v2/users/me`, {
         method: 'GET',
@@ -24,6 +27,8 @@ export class WordPressService {
       if (response.ok) {
         return { success: true };
       } else {
+        console.log(response);
+        
         const errorData = await response.json().catch(() => ({}));
         return { 
           success: false, 
@@ -31,6 +36,8 @@ export class WordPressService {
         };
       }
     } catch (error) {
+      console.log(error);
+      
       return { 
         success: false, 
         error: error instanceof Error ? error.message : 'Connection failed' 
