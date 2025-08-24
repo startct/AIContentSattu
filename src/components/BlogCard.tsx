@@ -62,48 +62,48 @@ export const BlogCard: React.FC<BlogCardProps> = ({ blog, onUpdateBlog }) => {
     });
     setIsEditing(false);
   };
-  const formatContent = (content: string) => {
-    return content.split("\n").map((line, index) => {
-      if (line.startsWith("# ")) {
-        return (
-          <h1
-            key={index}
-            className="text-2xl font-bold text-gray-800 mb-4 mt-6"
-          >
-            {line.substring(2)}
-          </h1>
-        );
-      }
-      if (line.startsWith("## ")) {
-        return (
-          <h2
-            key={index}
-            className="text-xl font-semibold text-gray-800 mb-3 mt-5"
-          >
-            {line.substring(3)}
-          </h2>
-        );
-      }
-      if (line.startsWith("### ")) {
-        return (
-          <h3
-            key={index}
-            className="text-lg font-medium text-gray-800 mb-2 mt-4"
-          >
-            {line.substring(4)}
-          </h3>
-        );
-      }
-      if (line.trim() === "") {
-        return <br key={index} />;
-      }
-      return (
-        <p key={index} className="text-gray-600 mb-3 leading-relaxed">
-          {line}
-        </p>
-      );
-    });
-  };
+  // const formatContent = (content: string) => {
+  //   return content.split("\n").map((line, index) => {
+  //     if (line.startsWith("# ")) {
+  //       return (
+  //         <h1
+  //           key={index}
+  //           className="text-2xl font-bold text-gray-800 mb-4 mt-6"
+  //         >
+  //           {line.substring(2)}
+  //         </h1>
+  //       );
+  //     }
+  //     if (line.startsWith("## ")) {
+  //       return (
+  //         <h2
+  //           key={index}
+  //           className="text-xl font-semibold text-gray-800 mb-3 mt-5"
+  //         >
+  //           {line.substring(3)}
+  //         </h2>
+  //       );
+  //     }
+  //     if (line.startsWith("### ")) {
+  //       return (
+  //         <h3
+  //           key={index}
+  //           className="text-lg font-medium text-gray-800 mb-2 mt-4"
+  //         >
+  //           {line.substring(4)}
+  //         </h3>
+  //       );
+  //     }
+  //     if (line.trim() === "") {
+  //       return <br key={index} />;
+  //     }
+  //     return (
+  //       <p key={index} className="text-gray-600 mb-3 leading-relaxed">
+  //         {line}
+  //       </p>
+  //     );
+  //   });
+  // };
 
   // Quill modules to customize toolbar
   const modules = {
